@@ -9,7 +9,7 @@ namespace ToDoo
         {
             var todoService = new ToDoService();
             todoService.AddTodo(new Todo(){StartDate = DateTime.Now});
-            todoService.AddTodo(new Todo(){StartDate = DateTime.Now});
+            todoService.AddTodo(new Todo(){StartDate = DateTime.Now.AddSeconds(10)});
             Console.ReadKey();
         }
     }

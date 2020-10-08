@@ -1,4 +1,5 @@
 using System;
+using ToDoo.Models.Enums;
 
 namespace ToDoo.Models
 {
@@ -19,5 +20,7 @@ namespace ToDoo.Models
         public DateTime? EndTime { get; set; }
 
         public bool Enabled { get; set; }
+
+        public ToDoType ToDoType { get; set; }
     }
 }

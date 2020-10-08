@@ -23,6 +23,7 @@ namespace ToDoo
         public void InvokeJob(IToDo toDo)
         {
             toDo.Enabled = true;
+            Console.WriteLine($"change in {toDo.Id}, {toDo.Enabled} to {true.ToString()}");
         }
 
         public void AddTodo(IToDo toDo)
@@ -38,16 +39,10 @@ namespace ToDoo
 
         private void TimerTick(object source, ElapsedEventArgs e)
         {
-            var queryLast = toDos.Where(x => x.StartDate < e.SignalTime && !x.Enabled);
-            var query = toDos.Where(x => e.SignalTime == x.StartDate);
-            var res = queryLast.Concat(query).Distinct();
+            var res = toDos.Where(x => x.StartDate <= e.SignalTime && !x.Enabled);
             res.ForEach(x =>
             {
                 InvokeJob(x);
-            });
-            res.ForEach(x =>
-            {
-                Console.WriteLine($"{x.Id}, {x.Enabled}");
             });
         }
 
