@@ -1,16 +1,25 @@
-﻿using System.Timers;
+﻿using System.Linq;
+using System.Diagnostics;
+using System.Threading;
 using System;
-using ToDoo.Models;
+
 namespace ToDoo
 {
     class Program
     {
         static void Main(string[] args)
         {
-            var todoService = new ToDoService();
-            todoService.AddTodo(new Todo(){StartDate = DateTime.Now});
-            todoService.AddTodo(new Todo(){StartDate = DateTime.Now.AddSeconds(10)});
+            var line = "";
+            ((DayOfWeek[])Enum.GetValues(typeof(DayOfWeek))).ToList().ForEach(x=> 
+            {
+                line += $"[{x.ToString()}] ";
+            });
+            Console.WriteLine(line);
+
+            var todoo = new ToDoService();
             Console.ReadKey();
         }
+
+
     }
 }

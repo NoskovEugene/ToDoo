@@ -19,8 +19,12 @@ namespace ToDoo.Models
 
         public DateTime? EndTime { get; set; }
 
-        public bool Enabled { get; set; }
+        public bool IsEnd { get; set; } = false;
 
         public ToDoType ToDoType { get; set; }
+
+        public ToDoType Type { get; set; }
+        
+        public DayOfWeek[] Days { get; set; }
     }
 }
