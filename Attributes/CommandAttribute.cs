@@ -1,4 +1,4 @@
-namespace ToDoo.Attributes
+namespace Router.Attributes
 {
     public class CommandAttribute : System.Attribute
     {
@@ -6,10 +6,10 @@ namespace ToDoo.Attributes
 
         public string Parameters { get; set; }
 
-        public string ParametersParser { get; set; }
+        public string ParametersSeparator { get; set; }
 
         public string Flags { get; set; }
 
-        public string FlagsParser { get; set; }
+        public string FlagsSeparator { get; set; }
     }
 }
