@@ -15,6 +15,10 @@ namespace ToDoo
 
         static void Main(string[] args)
         {
+            var router = new Router.Router();
+            
+            router.AddApi<ToDoApi>();
+
             var input = "[Start datetime] [ToDoType] {[Sunday] [Monday] [Tuesday] [Wednesday] [Thursday] [Friday] [Saturday]} {[one more params]}";
             var multiParamsRegex = new Regex(@"\{.+?\}\s{0,1}");
             var paramsRegex = new Regex(@"\[.+?\]\s{0,1}");
@@ -26,9 +30,7 @@ namespace ToDoo
             {
                 Console.WriteLine(GetAndRemove(ref input,paramsRegex));
             }
-            
-            
-            
+
             Console.ReadKey();
         }
 
