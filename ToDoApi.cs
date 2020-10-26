@@ -2,6 +2,7 @@ using Router.Attributes;
 
 namespace ToDoo
 {
+    [Utility(UtilityName = "todo")]
     public class ToDoApi
     {
         private ToDoService Service { get; set; }
